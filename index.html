@@ -245,7 +245,6 @@
             font-size: 2.5rem;
             margin: 2rem 0;
             animation: multiGlow 2s ease-in-out infinite alternate;
-            position: relative;
         }
 
         .gallery-grid {
@@ -263,6 +262,7 @@
             transition: transform 0.3s ease;
             aspect-ratio: 1/1;
             animation: borderGlow 4s linear infinite;
+            cursor: pointer;
         }
 
         .gallery-item img {
@@ -592,7 +592,7 @@
         <section class="gallery-section">
             <h2>Our Creations</h2>
             <div class="gallery-grid" id="galleryContainer">
-                <!-- Images loaded automatically -->
+                <!-- Images loaded automatically from ImgBB -->
             </div>
         </section>
 
@@ -621,10 +621,76 @@
                         <div class="package-item contact-package" data-title="Package 1: Themed Cake & Party Packs">
                             <div class="package-title">Package 1: Themed Cake & Party Packs</div>
                         </div>
-                        <!-- Other package items -->
+                        <div class="package-item contact-package" data-title="Package 2: Themed Cupcakes & Party Packs">
+                            <div class="package-title">Package 2: Themed Cupcakes & Party Packs</div>
+                        </div>
+                        <div class="package-item contact-package" data-title="Package 3: Plain Cake & Party Packs">
+                            <div class="package-title">Package 3: Plain Cake & Party Packs</div>
+                        </div>
+                        <div class="package-item contact-package" data-title="Package 4: Plain Cupcakes & Party Packs">
+                            <div class="package-title">Package 4: Plain Cupcakes & Party Packs</div>
+                        </div>
+                        <div class="package-item contact-package" data-title="Package 5: Themed Cake Only">
+                            <div class="package-title">Package 5: Themed Cake Only</div>
+                        </div>
+                        <div class="package-item contact-package" data-title="Package 6: Themed Cupcakes Only">
+                            <div class="package-title">Package 6: Themed Cupcakes Only</div>
+                        </div>
+                        <div class="package-item contact-package" data-title="Package 7: Plain Cake Only">
+                            <div class="package-title">Package 7: Plain Cake Only</div>
+                        </div>
+                        <div class="package-item contact-package" data-title="Package 8: Plain Cupcakes Only">
+                            <div class="package-title">Package 8: Plain Cupcakes Only</div>
+                        </div>
+                        <div class="package-item contact-package" data-title="Package 9: Party Packs Only">
+                            <div class="package-title">Package 9: Party Packs Only</div>
+                        </div>
                     </div>
+
                     <form id="inquiryForm" class="contact-form">
-                        <!-- Form elements -->
+                        <div class="form-group">
+                            <label for="userName"><i class="fas fa-user"></i> First Name:</label>
+                            <input type="text" id="userName" class="form-input" 
+                                   placeholder="John" required
+                                   pattern="[A-Za-z ]{2,30}"
+                                   title="Please enter a valid first name (2-30 letters)">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userSurname"><i class="fas fa-user"></i> Last Name:</label>
+                            <input type="text" id="userSurname" class="form-input" 
+                                   placeholder="Doe" required
+                                   pattern="[A-Za-z ]{2,30}"
+                                   title="Please enter a valid last name (2-30 letters)">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userPhone"><i class="fas fa-phone"></i> Contact Number:</label>
+                            <input type="tel" id="userPhone" class="form-input" 
+                                   placeholder="072 123 4567" 
+                                   pattern="0[0-9]{9}" 
+                                   title="10-digit SA number (e.g., 072 123 4567)" 
+                                   required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userEmail"><i class="fas fa-envelope"></i> Email (optional):</label>
+                            <input type="email" id="userEmail" class="form-input" 
+                                   placeholder="john@example.com"
+                                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userMessage"><i class="fas fa-comment"></i> Message:</label>
+                            <textarea id="userMessage" class="form-input" rows="4"
+                                      placeholder="Tell us about your event needs..."></textarea>
+                        </div>
+
+                        <input type="hidden" id="selectedPackage">
+                        
+                        <button type="submit" class="submit-button">
+                            <i class="fas fa-paper-plane"></i> Send Inquiry
+                        </button>
                     </form>
                 </div>
             </div>
@@ -636,41 +702,51 @@
     <script async defer crossorigin="anonymous" 
             src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
     <script>
-        // Image loading and gallery functions
-        async function loadImagesFromFolder() {
+        // ImgBB Configuration
+        const IMGBB_API_KEY = '931252028c5bfe80bf6940ac0764d0b6'; // 
+        const IMGBB_ALBUM_ID = 'https://ibb.co/album/pQwCyB'; // 
+
+        // Gallery Initialization
+        async function initGallery() {
+            const galleryContainer = document.getElementById('galleryContainer');
+            
             try {
-                const response = await fetch('images/');
-                const html = await response.text();
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                const imageLinks = Array.from(doc.querySelectorAll('a'))
-                    .map(link => link.href)
-                    .filter(href => /\.(jpg|jpeg|png|gif|webp)$/i.test(href));
-                return imageLinks;
+                const response = await fetch(
+                    `https://api.imgbb.com/1/album?key=${IMGBB_API_KEY}&id=${IMGBB_ALBUM_ID}`
+                );
+                
+                if (!response.ok) throw new Error('Failed to load gallery');
+                
+                const { data } = await response.json();
+                
+                galleryContainer.innerHTML = data.images.map(img => `
+                    <div class="gallery-item" onclick="showLightbox('${img.url}')">
+                        <img src="${img.url_thumb}" 
+                             alt="${img.title || 'Birthday creation'}" 
+                             loading="lazy">
+                    </div>
+                `).join('');
+                
             } catch (error) {
-                console.error('Error loading images:', error);
-                return [];
+                console.error('Gallery error:', error);
+                galleryContainer.innerHTML = `
+                    <p class="error">Gallery loading... Please refresh in a moment</p>
+                    <style>
+                        .error {
+                            color: #ff4444;
+                            text-align: center;
+                            animation: glow 1s ease infinite;
+                        }
+                    </style>
+                `;
             }
         }
 
-        async function initGallery() {
-            const galleryContainer = document.getElementById('galleryContainer');
-            const images = await loadImagesFromFolder();
-            images.forEach(img => {
-                const item = document.createElement('div');
-                item.className = 'gallery-item';
-                const imgName = img.split('/').pop();
-                item.innerHTML = `<img src="${img}" alt="Birthday creation ${imgName}" loading="lazy">`;
-                item.addEventListener('click', () => showLightbox(img));
-                galleryContainer.appendChild(item);
-            });
-        }
-
-        // Lightbox functions
-        function showLightbox(imgSrc) {
+        // Lightbox Functions
+        function showLightbox(imgUrl) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightboxImg');
-            lightboxImg.src = imgSrc;
+            lightboxImg.src = imgUrl;
             lightbox.style.display = 'block';
         }
 
@@ -678,11 +754,12 @@
             document.getElementById('lightbox').style.display = 'none';
         });
 
-        // Form handling
+        // Form Handling
         document.querySelectorAll('.form-input').forEach(input => {
             input.addEventListener('input', function() {
                 this.setCustomValidity('');
                 this.checkValidity();
+                
                 if (this.validity.valid) {
                     this.style.borderColor = '#23d160';
                     this.style.boxShadow = '0 0 10px rgba(35, 209, 96, 0.5)';
@@ -695,10 +772,12 @@
 
         document.getElementById('inquiryForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            
             if (!document.getElementById('selectedPackage').value) {
                 alert('Please select a package first');
                 return;
             }
+
             const formData = {
                 package: document.getElementById('selectedPackage').value,
                 name: document.getElementById('userName').value,
@@ -707,22 +786,28 @@
                 email: document.getElementById('userEmail').value || 'Not provided',
                 message: document.getElementById('userMessage').value || 'No additional message'
             };
+
             const subject = `Package Inquiry: ${formData.package}`;
-            const body = `Name: ${formData.name} ${formData.surname}\n\nContact: ${formData.phone}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+            const body = `Name: ${formData.name} ${formData.surname}\n\n` +
+                        `Contact: ${formData.phone}\n` +
+                        `Email: ${formData.email}\n\n` +
+                        `Message:\n${formData.message}`;
+
             window.location.href = `mailto:nicole@bdays4u.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             closeContactModal();
         });
 
-        // Package selection
+        // Package Selection
         document.querySelectorAll('.contact-package').forEach(item => {
             item.addEventListener('click', function() {
-                document.querySelectorAll('.contact-package').forEach(p => p.style.border = 'none');
+                document.querySelectorAll('.contact-package').forEach(p => 
+                    p.style.border = 'none');
                 this.style.border = '2px solid var(--neon-cyan)';
                 document.getElementById('selectedPackage').value = this.dataset.title;
             });
         });
 
-        // Modal handling
+        // Modal Handling
         function showContactModal() {
             document.getElementById('contactModal').style.display = "block";
         }
@@ -737,7 +822,7 @@
             }
         }
 
-        // Initialize
+        // Initialize Gallery
         window.addEventListener('DOMContentLoaded', initGallery);
     </script>
 </body>
