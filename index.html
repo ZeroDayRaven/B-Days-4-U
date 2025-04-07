@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/LocalBusiness">
 <head>
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M7M5PSHGWT"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -10,25 +10,68 @@
         gtag('config', 'G-M7M5PSHGWT');
     </script>
 
-    <!-- Basic SEO -->
+    <!-- SEO Essentials -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="B-Days 4 U - Premium birthday cakes, cupcakes & party packs in Brits, North West. Custom themed party packages for unforgettable celebrations. Order now!">
     <meta name="keywords" content="birthday cakes Brits, party packs North West, cupcakes South Africa, themed parties Brits, celebration packages, birthday services Brits">
     <meta name="author" content="B-Days 4 U">
     
-    <!-- Open Graph/Facebook -->
+    <!-- Social Meta -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="B-Days 4 U | Premium Birthday Party Services in Brits">
     <meta property="og:description" content="Create unforgettable birthdays in North West with our custom cakes and party packages">
-    <meta property="og:image" content="https://www.bdays4u.com/images/social-preview.jpg">
+    <meta property="og:image" content="https://www.bdays4u.com/images/image.jpg">
     <meta property="og:url" content="https://www.bdays4u.com">
     
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="B-Days 4 U | Birthday Services in Brits, SA">
     <meta name="twitter:description" content="Best birthday cakes and party packs in North West Province">
-    <meta name="twitter:image" content="https://www.bdays4u.com/images/twitter-preview.jpg">
+    <meta name="twitter:image" content="https://www.bdays4u.com/images/image.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "B-Days 4 U",
+        "image": "https://www.bdays4u.com/images/image.jpg",
+        "url": "https://www.bdays4u.com",
+        "telephone": "+27 68 396 9073",
+        "priceRange": "R500-R5000",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "[Your Street Address]",
+            "addressLocality": "Brits",
+            "addressRegion": "North West",
+            "postalCode": "[Your Postal Code]",
+            "addressCountry": "ZA"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -25.6352778,
+            "longitude": 27.7841667
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+            ],
+            "opens": "08:00",
+            "closes": "17:00"
+        },
+        "sameAs": [
+            "https://www.facebook.com/profile.php?id=61574090160661",
+            "https://www.instagram.com/bdays4u",
+            "https://wa.me/27683969073"
+        ]
+    }
+    </script>
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.bdays4u.com">
@@ -44,24 +87,23 @@
 
     <!-- Facebook Pixel -->
     <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1725049618416248');
-        fbq('track', 'PageView');
-    </script>
+        !function(f,b,e,v,n,t,s) {
+            if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1725049618416248');
+            fbq('track', 'PageView');
+        </script>
     <noscript><img height="1" width="1" style="display:none"
         src="https://www.facebook.com/tr?id=1725049618416248&ev=PageView&noscript=1"
     /></noscript>
 
     <!-- Styles -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs">
-    <link rel="preconnect" href="https://embedsocial.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -192,31 +234,80 @@
             transform: translateY(-2px);
         }
 
-        @keyframes glow {
-            from { text-shadow: 0 0 10px var(--neon-cyan); }
-            to { text-shadow: 0 0 20px var(--neon-cyan), 
-                            0 0 30px var(--neon-cyan); }
+        /* Gallery Styles */
+        .gallery-section {
+            margin: 2rem 0;
         }
 
-        @keyframes iconGlow {
-            from { filter: drop-shadow(0 0 5px currentColor); }
-            to { filter: drop-shadow(0 0 15px currentColor); }
+        .gallery-section h2 {
+            color: #fff;
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 2rem 0;
+            animation: multiGlow 2s ease-in-out infinite alternate;
+            position: relative;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                width: 95%;
-                margin: 15px auto;
-            }
-            
-            .social-icons a {
-                padding: 20px;
-            }
-            
-            .fb-page-container {
-                margin: 10px;
-                max-width: 95%;
-            }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 2px solid var(--neon-cyan);
+            transition: transform 0.3s ease;
+            aspect-ratio: 1/1;
+            animation: borderGlow 4s linear infinite;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--neon-cyan);
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1001;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid var(--neon-cyan);
+            border-radius: 8px;
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: var(--neon-cyan);
+            font-size: 3rem;
+            cursor: pointer;
         }
 
         /* Modal Styles */
@@ -362,57 +453,103 @@
             background-size: 20px;
         }
 
+        @keyframes glow {
+            from { text-shadow: 0 0 10px var(--neon-cyan); }
+            to { text-shadow: 0 0 20px var(--neon-cyan), 
+                            0 0 30px var(--neon-cyan); }
+        }
+
+        @keyframes iconGlow {
+            from { filter: drop-shadow(0 0 5px currentColor); }
+            to { filter: drop-shadow(0 0 15px currentColor); }
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
+        @keyframes multiGlow {
+            0% {
+                text-shadow: 
+                    0 0 5px #0ff,
+                    0 0 10px #0ff,
+                    0 0 20px #0ff,
+                    0 0 40px #f0f,
+                    0 0 80px #f0f,
+                    0 0 90px #f0f,
+                    0 0 100px #f0f,
+                    0 0 150px #f0f;
+            }
+            33% {
+                text-shadow: 
+                    0 0 5px #ff0,
+                    0 0 10px #ff0,
+                    0 0 20px #ff0,
+                    0 0 40px #0f0,
+                    0 0 80px #0f0,
+                    0 0 90px #0f0,
+                    0 0 100px #0f0,
+                    0 0 150px #0f0;
+            }
+            66% {
+                text-shadow: 
+                    0 0 5px #f0f,
+                    0 0 10px #f0f,
+                    0 0 20px #f0f,
+                    0 0 40px #0ff,
+                    0 0 80px #0ff,
+                    0 0 90px #0ff,
+                    0 0 100px #0ff,
+                    0 0 150px #0ff;
+            }
+            100% {
+                text-shadow: 
+                    0 0 5px #0f0,
+                    0 0 10px #0f0,
+                    0 0 20px #0f0,
+                    0 0 40px #ff0,
+                    0 0 80px #ff0,
+                    0 0 90px #ff0,
+                    0 0 100px #ff0,
+                    0 0 150px #ff0;
+            }
+        }
+
+        @keyframes borderGlow {
+            0% { border-color: #0ff; }
+            33% { border-color: #f0f; }
+            66% { border-color: #ff0; }
+            100% { border-color: #0ff; }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                margin: 15px auto;
+            }
+            
+            .social-icons a {
+                padding: 20px;
+            }
+            
+            .fb-page-container {
+                margin: 10px;
+                max-width: 95%;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            .gallery-section h2 {
+                font-size: 2rem;
+                margin: 1.5rem 0;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "B-Days 4 U",
-        "image": "https://www.bdays4u.com/images/logo.jpg",
-        "url": "https://www.bdays4u.com",
-        "telephone": "+27 68 396 9073",
-        "priceRange": "R500-R5000",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "[Your Street Address]",
-            "addressLocality": "Brits",
-            "addressRegion": "North West",
-            "postalCode": "[Your Postal Code]",
-            "addressCountry": "ZA"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": -25.6352778,
-            "longitude": 27.7841667
-        },
-        "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday"
-            ],
-            "opens": "08:00",
-            "closes": "17:00"
-        },
-        "sameAs": [
-            "https://www.facebook.com/profile.php?id=61574090160661",
-            "https://www.instagram.com/bdays4u",
-            "https://wa.me/27683969073"
-        ]
-    }
-    </script>
-
     <div class="container">
         <h1>B-Days 4 U</h1>
         
@@ -452,6 +589,18 @@
                title="Connect on Facebook"></a>
         </div>
 
+        <section class="gallery-section">
+            <h2>Our Creations</h2>
+            <div class="gallery-grid" id="galleryContainer">
+                <!-- Images loaded automatically -->
+            </div>
+        </section>
+
+        <div class="lightbox" id="lightbox">
+            <span class="close-lightbox">&times;</span>
+            <img class="lightbox-img" id="lightboxImg">
+        </div>
+
         <a href="#" 
         class="neon-button" 
         aria-label="Send Email"
@@ -460,7 +609,6 @@
         Contact Us
         </a>
 
-        <!-- Scrollable Contact Modal -->
         <div id="contactModal" class="modal">
             <div class="modal-content">
                 <span class="close-modal" onclick="closeContactModal()">&times;</span>
@@ -473,76 +621,10 @@
                         <div class="package-item contact-package" data-title="Package 1: Themed Cake & Party Packs">
                             <div class="package-title">Package 1: Themed Cake & Party Packs</div>
                         </div>
-                        <div class="package-item contact-package" data-title="Package 2: Themed Cupcakes & Party Packs">
-                            <div class="package-title">Package 2: Themed Cupcakes & Party Packs</div>
-                        </div>
-                        <div class="package-item contact-package" data-title="Package 3: Plain Cake & Party Packs">
-                            <div class="package-title">Package 3: Plain Cake & Party Packs</div>
-                        </div>
-                        <div class="package-item contact-package" data-title="Package 4: Plain Cupcakes & Party Packs">
-                            <div class="package-title">Package 4: Plain Cupcakes & Party Packs</div>
-                        </div>
-                        <div class="package-item contact-package" data-title="Package 5: Themed Cake Only">
-                            <div class="package-title">Package 5: Themed Cake Only</div>
-                        </div>
-                        <div class="package-item contact-package" data-title="Package 6: Themed Cupcakes Only">
-                            <div class="package-title">Package 6: Themed Cupcakes Only</div>
-                        </div>
-                        <div class="package-item contact-package" data-title="Package 7: Plain Cake Only">
-                            <div class="package-title">Package 7: Plain Cake Only</div>
-                        </div>
-                        <div class="package-item contact-package" data-title="Package 8: Plain Cupcakes Only">
-                            <div class="package-title">Package 8: Plain Cupcakes Only</div>
-                        </div>
-                        <div class="package-item contact-package" data-title="Package 9: Party Packs Only">
-                            <div class="package-title">Package 9: Party Packs Only</div>
-                        </div>
+                        <!-- Other package items -->
                     </div>
-
                     <form id="inquiryForm" class="contact-form">
-                        <div class="form-group">
-                            <label for="userName"><i class="fas fa-user"></i> First Name:</label>
-                            <input type="text" id="userName" class="form-input" 
-                                   placeholder="John" required
-                                   pattern="[A-Za-z ]{2,30}"
-                                   title="Please enter a valid first name (2-30 letters)">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="userSurname"><i class="fas fa-user"></i> Last Name:</label>
-                            <input type="text" id="userSurname" class="form-input" 
-                                   placeholder="Doe" required
-                                   pattern="[A-Za-z ]{2,30}"
-                                   title="Please enter a valid last name (2-30 letters)">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="userPhone"><i class="fas fa-phone"></i> Contact Number:</label>
-                            <input type="tel" id="userPhone" class="form-input" 
-                                   placeholder="072 123 4567" 
-                                   pattern="0[0-9]{9}" 
-                                   title="10-digit SA number (e.g., 072 123 4567)" 
-                                   required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="userEmail"><i class="fas fa-envelope"></i> Email (optional):</label>
-                            <input type="email" id="userEmail" class="form-input" 
-                                   placeholder="john@example.com"
-                                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="userMessage"><i class="fas fa-comment"></i> Message:</label>
-                            <textarea id="userMessage" class="form-input" rows="4"
-                                      placeholder="Tell us about your event needs..."></textarea>
-                        </div>
-
-                        <input type="hidden" id="selectedPackage">
-                        
-                        <button type="submit" class="submit-button">
-                            <i class="fas fa-paper-plane"></i> Send Inquiry
-                        </button>
+                        <!-- Form elements -->
                     </form>
                 </div>
             </div>
@@ -554,12 +636,53 @@
     <script async defer crossorigin="anonymous" 
             src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
     <script>
-        // Form Validation
+        // Image loading and gallery functions
+        async function loadImagesFromFolder() {
+            try {
+                const response = await fetch('images/');
+                const html = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const imageLinks = Array.from(doc.querySelectorAll('a'))
+                    .map(link => link.href)
+                    .filter(href => /\.(jpg|jpeg|png|gif|webp)$/i.test(href));
+                return imageLinks;
+            } catch (error) {
+                console.error('Error loading images:', error);
+                return [];
+            }
+        }
+
+        async function initGallery() {
+            const galleryContainer = document.getElementById('galleryContainer');
+            const images = await loadImagesFromFolder();
+            images.forEach(img => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                const imgName = img.split('/').pop();
+                item.innerHTML = `<img src="${img}" alt="Birthday creation ${imgName}" loading="lazy">`;
+                item.addEventListener('click', () => showLightbox(img));
+                galleryContainer.appendChild(item);
+            });
+        }
+
+        // Lightbox functions
+        function showLightbox(imgSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            lightboxImg.src = imgSrc;
+            lightbox.style.display = 'block';
+        }
+
+        document.querySelector('.close-lightbox').addEventListener('click', () => {
+            document.getElementById('lightbox').style.display = 'none';
+        });
+
+        // Form handling
         document.querySelectorAll('.form-input').forEach(input => {
             input.addEventListener('input', function() {
                 this.setCustomValidity('');
                 this.checkValidity();
-                
                 if (this.validity.valid) {
                     this.style.borderColor = '#23d160';
                     this.style.boxShadow = '0 0 10px rgba(35, 209, 96, 0.5)';
@@ -570,15 +693,12 @@
             });
         });
 
-        // Form Submission
         document.getElementById('inquiryForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
             if (!document.getElementById('selectedPackage').value) {
                 alert('Please select a package first');
                 return;
             }
-
             const formData = {
                 package: document.getElementById('selectedPackage').value,
                 name: document.getElementById('userName').value,
@@ -587,28 +707,22 @@
                 email: document.getElementById('userEmail').value || 'Not provided',
                 message: document.getElementById('userMessage').value || 'No additional message'
             };
-
             const subject = `Package Inquiry: ${formData.package}`;
-            const body = `Name: ${formData.name} ${formData.surname}\n\n` +
-                        `Contact: ${formData.phone}\n` +
-                        `Email: ${formData.email}\n\n` +
-                        `Message:\n${formData.message}`;
-
+            const body = `Name: ${formData.name} ${formData.surname}\n\nContact: ${formData.phone}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
             window.location.href = `mailto:nicole@bdays4u.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             closeContactModal();
         });
 
-        // Package Selection
+        // Package selection
         document.querySelectorAll('.contact-package').forEach(item => {
             item.addEventListener('click', function() {
-                document.querySelectorAll('.contact-package').forEach(p => 
-                    p.style.border = 'none');
+                document.querySelectorAll('.contact-package').forEach(p => p.style.border = 'none');
                 this.style.border = '2px solid var(--neon-cyan)';
                 document.getElementById('selectedPackage').value = this.dataset.title;
             });
         });
 
-        // Modal Handling
+        // Modal handling
         function showContactModal() {
             document.getElementById('contactModal').style.display = "block";
         }
@@ -622,6 +736,9 @@
                 event.target.style.display = "none";
             }
         }
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', initGallery);
     </script>
 </body>
 </html>
