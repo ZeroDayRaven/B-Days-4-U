@@ -1,6 +1,10 @@
-<url>
-    <loc>https://bdays4u.com/about</loc>
-    <lastmod>2025-04-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-</url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://bdays4u.com/</loc>
+        <lastmod>2025-04-08</lastmod> <!-- Update to actual date -->
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <!-- Add other pages here -->
+</urlset>
