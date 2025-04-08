@@ -1,13 +1,48 @@
 {
   "extends": [
-    "development"
+    "development",
+    "accessibility",
+    "progressive-web-apps"
   ],
   "hints": {
+    "axe/color": ["error", { "threshold": 4.5 }],
     "axe/text-alternatives": [
-      "default",
+      "warning",
       {
-        "image-alt": "off"
+        "image-alt": {
+          "enabled": true,
+          "severity": "warning",
+          "ignoreNonDecoratives": true
+        }
       }
-    ]
-  }
+    ],
+    "https-only": "error",
+    "strict-transport-security": "error",
+    "manifest-exists": "warning",
+    "manifest-file-extension": "error",
+    "meta-viewport": "error",
+    "no-vulnerable-javascript-libraries": "error",
+    "service-worker": "warning",
+    "ssllabs": ["error", { "grade": "A-" }],
+    "content-type": "error",
+    "no-disallowed-headers": [
+      "error", 
+      {
+        "server": ["Apache", "nginx"],
+        "x-powered-by": true
+      }
+    ],
+    "no-html-only-headers": "error",
+    "x-content-type-options": "error"
+  },
+  "browserslist": [
+    "> 0.5% in ZA",
+    "last 2 Chrome versions",
+    "last 2 Firefox versions"
+  ],
+  "ignoredUrls": [
+    "http://localhost/**",
+    "http://127.0.0.1/**",
+    "https://bdays4u.com/private/**"
+  ]
 }
